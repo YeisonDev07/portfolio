@@ -84,21 +84,95 @@ animatedElements.forEach((el) => {
   observer.observe(el);
 });
 
+// ==================== EMAILJS CONFIGURACIÓN ====================
+// Inicializar EmailJS con tu Public Key
+// Obtén tu Public Key en: https://dashboard.emailjs.com/admin/account
+emailjs.init("uaU1acW9HUXAYnFAc"); // ⚠️ REEMPLAZA CON TU PUBLIC KEY
+
 // ==================== FORMULARIO DE CONTACTO ====================
-const contactForm = document.querySelector(".contact-form");
+const contactForm = document.querySelector("#contact-form");
 
 if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Aquí puedes agregar la lógica para enviar el formulario
-    // Por ahora, solo mostramos un mensaje
-    const formData = new FormData(contactForm);
-    const name = formData.get("name");
+    // Obtener el botón de envío
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
 
-    alert(`¡Gracias por tu mensaje ${name}! Te contactaré pronto.`);
-    contactForm.reset();
+    // Deshabilitar botón y mostrar estado de carga
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+    // Configuración de EmailJS
+    const serviceID = "default_service"; // Tu Service ID
+    const templateID = "template_yq7elmz"; // Tu Template ID
+
+    // Enviar email usando EmailJS
+    emailjs
+      .sendForm(serviceID, templateID, contactForm)
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+
+          // Mostrar mensaje de éxito
+          showMessage(
+            "¡Mensaje enviado con éxito! Te contactaré pronto.",
+            "success"
+          );
+
+          // Resetear formulario
+          contactForm.reset();
+        },
+        (error) => {
+          console.error("FAILED...", error);
+
+          // Mostrar mensaje de error
+          showMessage(
+            "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo o contáctame directamente por email.",
+            "error"
+          );
+        }
+      )
+      .finally(() => {
+        // Rehabilitar botón y restaurar texto original
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      });
   });
+}
+
+// ==================== FUNCIÓN PARA MOSTRAR MENSAJES ====================
+function showMessage(message, type) {
+  // Crear elemento del mensaje
+  const messageDiv = document.createElement("div");
+  messageDiv.className = `message-alert message-${type}`;
+  messageDiv.innerHTML = `
+    <i class="fas fa-${
+      type === "success" ? "check-circle" : "exclamation-circle"
+    }"></i>
+    <span>${message}</span>
+    <button class="message-close" aria-label="Cerrar">&times;</button>
+  `;
+
+  // Agregar al body
+  document.body.appendChild(messageDiv);
+
+  // Mostrar con animación
+  setTimeout(() => messageDiv.classList.add("show"), 10);
+
+  // Cerrar al hacer click en el botón
+  const closeBtn = messageDiv.querySelector(".message-close");
+  closeBtn.addEventListener("click", () => {
+    messageDiv.classList.remove("show");
+    setTimeout(() => messageDiv.remove(), 300);
+  });
+
+  // Auto-cerrar después de 5 segundos
+  setTimeout(() => {
+    messageDiv.classList.remove("show");
+    setTimeout(() => messageDiv.remove(), 300);
+  }, 5000);
 }
 
 // ==================== EFECTO DE ESCRITURA EN HERO ====================

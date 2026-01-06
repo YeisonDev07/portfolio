@@ -130,6 +130,7 @@ a {
   display: flex;
   gap: 2rem;
   align-items: center;
+  font-size: 1.2em;
 }
 
 .nav-links a {
@@ -330,6 +331,7 @@ a {
 .stat-item p {
   color: var(--text-light);
   font-size: 0.9rem;
+  text-align: center;
 }
 
 /* ==================== SKILLS SECTION ==================== */
@@ -433,6 +435,7 @@ a {
   font-size: 3rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .project-card h3 {
@@ -488,7 +491,7 @@ a {
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
-  align-self: flex-start;
+  align-self: center;
 }
 
 .status-progress {
@@ -801,5 +804,78 @@ a {
 
   .nav-links {
     width: 85%;
+  }
+}
+
+/* ==================== MENSAJES DE ALERTA ==================== */
+.message-alert {
+  position: fixed;
+  top: 20px;
+  right: -400px;
+  max-width: 400px;
+  background-color: var(--white);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2000;
+  transition: right 0.3s ease;
+}
+
+.message-alert.show {
+  right: 20px;
+}
+
+.message-alert i {
+  font-size: 1.5rem;
+}
+
+.message-success {
+  border-left: 4px solid var(--success);
+}
+
+.message-success i {
+  color: var(--success);
+}
+
+.message-error {
+  border-left: 4px solid #ef4444;
+}
+
+.message-error i {
+  color: #ef4444;
+}
+
+.message-alert span {
+  flex: 1;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+.message-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.message-close:hover {
+  color: var(--text-color);
+}
+
+@media (max-width: 480px) {
+  .message-alert {
+    max-width: calc(100% - 40px);
+    right: -100%;
+  }
+
+  .message-alert.show {
+    right: 20px;
   }
 }

@@ -96,7 +96,7 @@ if (contactForm) {
     const formData = new FormData(contactForm);
     const name = formData.get("name");
 
-    alert(`¡Gracias por tu mensaje, ${name}! Te contactaré pronto.`);
+    alert(`¡Gracias por tu mensaje ${name}! Te contactaré pronto.`);
     contactForm.reset();
   });
 }

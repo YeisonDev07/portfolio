@@ -1,16 +1,16 @@
 /* ==================== VARIABLES CSS ==================== */
 :root {
-  --primary-color: #4f29da;
-  --secondary-color: #2b1057;
+  --primary-color: #0118e6;
+  --secondary-color: #000e4d;
   --accent-color: #3b82f6;
-  --dark-bg: #1e1b4b;
+  --dark-bg: #0c0c0c;
   --darker-bg: #0f172a;
   --text-color: #334155;
   --text-light: #64748b;
   --white: #ffffff;
   --gray-light: #f1f5f9;
   --gray-medium: #e2e8f0;
-  --success: #10b981;
+  --success: #00a151;
   --warning: #f59e0b;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -163,7 +163,7 @@ a {
 
 /* ==================== HERO SECTION ==================== */
 .hero {
-  background: linear-gradient(135deg, #1e0447 0%, #1e1b4b 100%);
+  background: linear-gradient(135deg, #080036 25%, #0d0344 50%, #1b3eaf 100%);
   color: var(--white);
   padding: 6rem 0;
   min-height: 90vh;
@@ -183,7 +183,7 @@ a {
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
   line-height: 1.2;
 }

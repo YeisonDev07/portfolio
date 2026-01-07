@@ -194,24 +194,133 @@ if (heroTitle) {
   setTimeout(typeWriter, 500);
 }
 
-// ==================== MODO OSCURO (OPCIONAL) ====================
-// Descomentar si quieres agregar un botón de modo oscuro
+// ==================== PARTICLES.JS ====================
+if (typeof particlesJS !== "undefined") {
+  particlesJS("particles-js", {
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: "#ffffff",
+      },
+      shape: {
+        type: "circle",
+        stroke: {
+          width: 0,
+          color: "#000000",
+        },
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: {
+          enable: false,
+          speed: 1,
+          opacity_min: 0.1,
+          sync: false,
+        },
+      },
+      size: {
+        value: 3,
+        random: true,
+        anim: {
+          enable: false,
+          speed: 40,
+          size_min: 0.1,
+          sync: false,
+        },
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#ffffff",
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: {
+          enable: true,
+          mode: "grab",
+        },
+        onclick: {
+          enable: true,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 140,
+          line_linked: {
+            opacity: 1,
+          },
+        },
+        push: {
+          particles_nb: 4,
+        },
+      },
+    },
+    retina_detect: true,
+  });
+}
 
-// const darkModeToggle = document.createElement('button');
-// darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-// darkModeToggle.className = 'dark-mode-toggle';
-// darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
-// document.body.appendChild(darkModeToggle);
+// ==================== MODO OSCURO ====================
+const darkModeToggle = document.querySelector(".dark-mode-toggle");
 
-// darkModeToggle.addEventListener('click', () => {
-//   document.body.classList.toggle('dark-mode');
-//   const isDark = document.body.classList.contains('dark-mode');
-//   darkModeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-//   localStorage.setItem('darkMode', isDark);
-// });
+// Cargar preferencia guardada al cargar la página
+if (localStorage.getItem("darkMode") === "true") {
+  document.body.classList.add("dark-mode");
+}
 
-// // Cargar preferencia guardada
-// if (localStorage.getItem('darkMode') === 'true') {
-//   document.body.classList.add('dark-mode');
-//   darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-// }
+// Toggle de modo oscuro
+if (darkModeToggle) {
+  darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDark);
+  });
+}
+
+// ==================== BOTÓN VOLVER ARRIBA ====================
+const scrollToTopBtn = document.querySelector(".scroll-to-top");
+
+// Mostrar/ocultar botón según scroll
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.add("show");
+  } else {
+    scrollToTopBtn.classList.remove("show");
+  }
+});
+
+// Funcionalidad del botón
+if (scrollToTopBtn) {
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}

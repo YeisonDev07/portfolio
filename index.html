@@ -7,6 +7,14 @@
       name="description"
       content="Yeison - Desarrollador de Software especializado en Node.js, React, y tecnologías web modernas"
     />
+    <meta property="og:title" content="Yeison Gil - Software Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio de Yeison Gil, desarrollador FullStack especializado en Node.js y React.js"
+    />
+    <meta property="og:image" content="URL_DE_TU_IMAGEN" />
+    <meta property="og:url" content="https://tudominio.com" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Yeison | Software Developer</title>
     <link rel="stylesheet" href="css/index.css" />
     <!-- Font Awesome para iconos -->
@@ -41,11 +49,15 @@
           <li><a href="#projects">Proyectos</a></li>
           <li><a href="#contact">Contacto</a></li>
         </ul>
+        <button class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
+          <i class="fas fa-moon"></i>
+        </button>
       </nav>
     </header>
 
     <main>
       <section class="hero">
+        <div id="particles-js"></div>
         <div class="hero-content container">
           <div class="hero-text">
             <h1 class="hero-title">Hola, soy Yeison Gil</h1>
@@ -60,6 +72,13 @@
             <div class="hero-buttons">
               <a href="#projects" class="btn btn-primary">Ver proyectos</a>
               <a href="#contact" class="btn btn-secondary">Contáctame</a>
+              <a
+                href="/assets/Yeison_Gil_Alzate-CV.pdf"
+                download
+                class="btn btn-cv"
+              >
+                <i class="fas fa-download"></i> Descargar CV
+              </a>
             </div>
           </div>
           <div class="hero-image">
@@ -94,7 +113,7 @@
               <div class="about-stats">
                 <div class="stat-item">
                   <i class="fas fa-briefcase"></i>
-                  <h3>2+</h3>
+                  <h3>1+</h3>
                   <p>Años de experiencia</p>
                 </div>
                 <div class="stat-item">
@@ -362,6 +381,13 @@
         </div>
       </div>
     </footer>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Botón Volver Arriba -->
+    <button class="scroll-to-top" aria-label="Volver arriba">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- EmailJS SDK -->
     <script

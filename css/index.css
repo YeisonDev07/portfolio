@@ -19,6 +19,167 @@
   --transition: all 0.3s ease;
 }
 
+/* ==================== MODO OSCURO ==================== */
+body.dark-mode {
+  --text-color: #f1f5f9;
+  --text-light: #cbd5e1;
+  --white: #ffffff;
+  --gray-light: #1e293b;
+  --gray-medium: #475569;
+  --dark-bg: #0f172a;
+  --darker-bg: #020617;
+  --primary-color: #3b82f6;
+  --secondary-color: #2563eb;
+  --accent-color: #60a5fa;
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+body.dark-mode .header {
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+body.dark-mode .hero {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e1b4b 100%);
+}
+
+body.dark-mode .about,
+body.dark-mode .projects {
+  background-color: #1e293b;
+}
+
+body.dark-mode .skills,
+body.dark-mode .contact {
+  background-color: #0f172a;
+}
+
+body.dark-mode .project-card,
+body.dark-mode .stat-item,
+body.dark-mode .contact-item {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .skill-category {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+}
+
+body.dark-mode .footer {
+  background-color: #1e293b;
+  border-top: 1px solid #334155;
+}
+
+body.dark-mode .section-title {
+  color: #f1f5f9;
+}
+
+body.dark-mode .nav-links a {
+  color: #f1f5f9;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: #60a5fa;
+}
+
+body.dark-mode .logo img {
+  filter: brightness(1.1);
+}
+
+body.dark-mode .stat-item h3,
+body.dark-mode .project-card h3,
+body.dark-mode .skill-category h3 {
+  color: #f1f5f9;
+}
+
+body.dark-mode .stat-item p,
+body.dark-mode .project-card p,
+body.dark-mode .skill-category ul li {
+  color: #cbd5e1;
+}
+
+body.dark-mode .contact-item h4 {
+  color: #94a3b8;
+}
+
+body.dark-mode .contact-item a,
+body.dark-mode .contact-item p {
+  color: #f1f5f9;
+}
+
+body.dark-mode .contact-item:hover {
+  background-color: #334155;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+  background-color: #1e293b;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+  border-color: #3b82f6;
+  background-color: #334155;
+}
+
+body.dark-mode .form-group label {
+  color: #f1f5f9;
+}
+
+body.dark-mode .tech-tag {
+  background-color: #334155;
+  color: #60a5fa;
+}
+
+body.dark-mode .project-link {
+  color: #60a5fa;
+}
+
+body.dark-mode .project-link:hover {
+  color: #3b82f6;
+}
+
+body.dark-mode .about-text p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .about-text p strong {
+  color: #f1f5f9;
+}
+
+body.dark-mode .hero-subtitle {
+  color: #60a5fa;
+}
+
+body.dark-mode .hero-description {
+  color: #cbd5e1;
+}
+
+body.dark-mode .contact-text {
+  color: #cbd5e1;
+}
+
+body.dark-mode .message-alert {
+  background-color: #1e293b;
+  border-left-color: #3b82f6;
+}
+
+body.dark-mode .message-alert span {
+  color: #f1f5f9;
+}
+
+body.dark-mode .scroll-to-top {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+body.dark-mode .footer-content p {
+  color: #cbd5e1;
+}
+
 /* ==================== RESET & BASE ==================== */
 * {
   margin: 0;
@@ -107,6 +268,31 @@ a {
   transform: scale(1.05);
 }
 
+.dark-mode-toggle {
+  background: none;
+  border: 2px solid var(--accent-color);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+
+.dark-mode-toggle:hover {
+  background-color: var(--accent-color);
+  transform: rotate(20deg) scale(1.1);
+}
+
+body.dark-mode .dark-mode-toggle i::before {
+  content: "\f185"; /* fa-sun */
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -170,6 +356,17 @@ a {
   min-height: 90vh;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .hero-content {
@@ -177,6 +374,8 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-text {
@@ -272,6 +471,22 @@ a {
   background-color: var(--white);
   color: var(--dark-bg);
   transform: translateY(-2px);
+}
+
+.btn-cv {
+  background: linear-gradient(135deg, var(--success), #059669);
+  color: var(--white);
+  border: none;
+}
+
+.btn-cv:hover {
+  background: linear-gradient(135deg, #059669, var(--success));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-cv i {
+  margin-right: 0.5rem;
 }
 
 /* ==================== ABOUT SECTION ==================== */
@@ -448,12 +663,14 @@ a {
   color: var(--text-color);
   margin-bottom: 1.5rem;
   flex-grow: 1;
+  text-align: justify;
 }
 
 .project-tech {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 1.5rem;
 }
 
@@ -470,6 +687,7 @@ a {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  justify-content: center;
 }
 
 .project-link {
@@ -877,5 +1095,57 @@ a {
 
   .message-alert.show {
     right: 20px;
+  }
+}
+
+/* ==================== BOTÓN VOLVER ARRIBA ==================== */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-xl);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100px);
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 30px -5px rgb(0 0 0 / 0.2);
+}
+
+.scroll-to-top:active {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
   }
 }

@@ -262,6 +262,7 @@ a {
 
 .logo img {
   transition: var(--transition);
+  border-radius: 7px;
 }
 
 .logo img:hover {

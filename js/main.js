@@ -1,326 +1,140 @@
-// ==================== MENU TOGGLE MÓVIL ====================
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
-const navItems = document.querySelectorAll(".nav-links a");
+/* ══════════════════════════════════════════════════════════
+   YEISON GIL — PORTFOLIO JS
+   ══════════════════════════════════════════════════════════ */
 
-// Toggle del menú
-navToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+/* ── NAV TOGGLE (móvil) ────────────────────────────────── */
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.getElementById('navLinks');
 
-  // Animar el icono hamburguesa
-  navToggle.classList.toggle("active");
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.classList.toggle('open', open);
+  navToggle.setAttribute('aria-expanded', open);
 });
 
-// Cerrar menú al hacer click en un enlace
-navItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-    navToggle.classList.remove("active");
+// Cerrar al hacer click en un enlace
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
   });
 });
 
-// Cerrar menú al hacer click fuera
-document.addEventListener("click", (e) => {
+// Cerrar al hacer click fuera
+document.addEventListener('click', e => {
   if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-    navLinks.classList.remove("active");
-    navToggle.classList.remove("active");
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
   }
 });
 
-// ==================== SCROLL SUAVE ====================
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
+/* ── NAV SCROLL SHADOW ─────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ── SCROLL SUAVE (por si hay hrefs con #) ─────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 });
 
-// ==================== HEADER AL HACER SCROLL ====================
-const header = document.querySelector(".header");
-let lastScroll = 0;
+/* ── SCROLL TOP ────────────────────────────────────────── */
+const scrollTopBtn = document.getElementById('scrollTop');
 
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
 
-  // Agregar sombra al header
-  if (currentScroll > 50) {
-    header.style.boxShadow = "0 4px 6px -1px rgb(0 0 0 / 0.2)";
-  } else {
-    header.style.boxShadow = "0 4px 6px -1px rgb(0 0 0 / 0.1)";
-  }
-
-  lastScroll = currentScroll;
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ==================== ANIMACIÓN DE ENTRADA ====================
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+/* ── ANIMATE ON SCROLL (IntersectionObserver) ──────────── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // solo una vez
     }
   });
-}, observerOptions);
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
 
-// Observar elementos para animación
-const animatedElements = document.querySelectorAll(
-  ".project-card, .skill-category, .stat-item"
-);
-animatedElements.forEach((el) => {
-  el.style.opacity = "0";
-  el.style.transform = "translateY(20px)";
-  el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
   observer.observe(el);
 });
 
-// ==================== EMAILJS CONFIGURACIÓN ====================
-// Inicializar EmailJS con tu Public Key
-// Obtén tu Public Key en: https://dashboard.emailjs.com/admin/account
-emailjs.init("uaU1acW9HUXAYnFAc"); // ⚠️ REEMPLAZA CON TU PUBLIC KEY
-
-// ==================== FORMULARIO DE CONTACTO ====================
-const contactForm = document.querySelector("#contact-form");
+/* ── CONTACT FORM (EmailJS) ────────────────────────────── */
+const contactForm = document.getElementById('contact-form');
+const formStatus  = document.getElementById('form-status');
+const submitBtn   = document.getElementById('submitBtn');
 
 if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
+  contactForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    // Obtener el botón de envío
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerHTML;
+    // Validación básica
+    const name    = contactForm.from_name.value.trim();
+    const email   = contactForm.from_email.value.trim();
+    const message = contactForm.message.value.trim();
 
-    // Deshabilitar botón y mostrar estado de carga
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-
-    // Configuración de EmailJS
-    const serviceID = "default_service"; // Tu Service ID
-    const templateID = "template_yq7elmz"; // Tu Template ID
-
-    // Enviar email usando EmailJS
-    emailjs
-      .sendForm(serviceID, templateID, contactForm)
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-
-          // Mostrar mensaje de éxito
-          showMessage(
-            "¡Mensaje enviado con éxito! Te contactaré pronto.",
-            "success"
-          );
-
-          // Resetear formulario
-          contactForm.reset();
-        },
-        (error) => {
-          console.error("FAILED...", error);
-
-          // Mostrar mensaje de error
-          showMessage(
-            "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo o contáctame directamente por email.",
-            "error"
-          );
-        }
-      )
-      .finally(() => {
-        // Rehabilitar botón y restaurar texto original
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnText;
-      });
-  });
-}
-
-// ==================== FUNCIÓN PARA MOSTRAR MENSAJES ====================
-function showMessage(message, type) {
-  // Crear elemento del mensaje
-  const messageDiv = document.createElement("div");
-  messageDiv.className = `message-alert message-${type}`;
-  messageDiv.innerHTML = `
-    <i class="fas fa-${
-      type === "success" ? "check-circle" : "exclamation-circle"
-    }"></i>
-    <span>${message}</span>
-    <button class="message-close" aria-label="Cerrar">&times;</button>
-  `;
-
-  // Agregar al body
-  document.body.appendChild(messageDiv);
-
-  // Mostrar con animación
-  setTimeout(() => messageDiv.classList.add("show"), 10);
-
-  // Cerrar al hacer click en el botón
-  const closeBtn = messageDiv.querySelector(".message-close");
-  closeBtn.addEventListener("click", () => {
-    messageDiv.classList.remove("show");
-    setTimeout(() => messageDiv.remove(), 300);
-  });
-
-  // Auto-cerrar después de 5 segundos
-  setTimeout(() => {
-    messageDiv.classList.remove("show");
-    setTimeout(() => messageDiv.remove(), 300);
-  }, 5000);
-}
-
-// ==================== EFECTO DE ESCRITURA EN HERO ====================
-const heroTitle = document.querySelector(".hero-title");
-if (heroTitle) {
-  const text = heroTitle.innerHTML;
-  heroTitle.innerHTML = "";
-  let i = 0;
-
-  function typeWriter() {
-    if (i < text.length) {
-      heroTitle.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, 100);
+    if (!name || !email || !message) {
+      setStatus('Por favor completa todos los campos.', 'err');
+      return;
     }
-  }
 
-  // Iniciar después de un breve delay
-  setTimeout(typeWriter, 500);
-}
+    // Estado de carga
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando…';
+    setStatus('', '');
 
-// ==================== PARTICLES.JS ====================
-if (typeof particlesJS !== "undefined") {
-  particlesJS("particles-js", {
-    particles: {
-      number: {
-        value: 80,
-        density: {
-          enable: true,
-          value_area: 800,
-        },
-      },
-      color: {
-        value: "#ffffff",
-      },
-      shape: {
-        type: "circle",
-        stroke: {
-          width: 0,
-          color: "#000000",
-        },
-      },
-      opacity: {
-        value: 0.5,
-        random: false,
-        anim: {
-          enable: false,
-          speed: 1,
-          opacity_min: 0.1,
-          sync: false,
-        },
-      },
-      size: {
-        value: 3,
-        random: true,
-        anim: {
-          enable: false,
-          speed: 40,
-          size_min: 0.1,
-          sync: false,
-        },
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#ffffff",
-        opacity: 0.4,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: "none",
-        random: false,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200,
-        },
-      },
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: {
-          enable: true,
-          mode: "grab",
-        },
-        onclick: {
-          enable: true,
-          mode: "push",
-        },
-        resize: true,
-      },
-      modes: {
-        grab: {
-          distance: 140,
-          line_linked: {
-            opacity: 1,
-          },
-        },
-        push: {
-          particles_nb: 4,
-        },
-      },
-    },
-    retina_detect: true,
+    try {
+      await emailjs.sendForm(
+        'default_service',     // ⚠️ Reemplaza con tu Service ID
+        'template_yq7elmz',    // ⚠️ Reemplaza con tu Template ID
+        contactForm
+      );
+      setStatus('✓ Mensaje enviado. ¡Te contactaré pronto!', 'ok');
+      contactForm.reset();
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setStatus('✗ Error al enviar. Escríbeme a yeisongil.dev9701@gmail.com', 'err');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Enviar mensaje';
+    }
   });
 }
 
-// ==================== MODO OSCURO ====================
-const darkModeToggle = document.querySelector(".dark-mode-toggle");
-
-// Cargar preferencia guardada al cargar la página
-if (localStorage.getItem("darkMode") === "true") {
-  document.body.classList.add("dark-mode");
+function setStatus(msg, type) {
+  formStatus.textContent = msg;
+  formStatus.className = type;
 }
 
-// Toggle de modo oscuro
-if (darkModeToggle) {
-  darkModeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const isDark = document.body.classList.contains("dark-mode");
-    localStorage.setItem("darkMode", isDark);
+/* ── ACTIVE NAV LINK (scroll spy) ─────────────────────── */
+const sections = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+
+const spyObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navAnchors.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${id}`
+          ? 'var(--text)'
+          : '';
+      });
+    }
   });
-}
+}, { rootMargin: '-40% 0px -55% 0px' });
 
-// ==================== BOTÓN VOLVER ARRIBA ====================
-const scrollToTopBtn = document.querySelector(".scroll-to-top");
-
-// Mostrar/ocultar botón según scroll
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 300) {
-    scrollToTopBtn.classList.add("show");
-  } else {
-    scrollToTopBtn.classList.remove("show");
-  }
-});
-
-// Funcionalidad del botón
-if (scrollToTopBtn) {
-  scrollToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
-}
+sections.forEach(s => spyObserver.observe(s));

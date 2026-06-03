@@ -1,539 +1,401 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Yeison - Desarrollador de Software especializado en Node.js, React, y tecnologías web modernas"
-    />
-    <meta property="og:title" content="Yeison Gil - Software Developer" />
-    <meta
-      property="og:description"
-      content="Portfolio de Yeison Gil, desarrollador FullStack especializado en Node.js y React.js"
-    />
-    <meta property="og:image" content="URL_DE_TU_IMAGEN" />
-    <meta property="og:url" content="https://tudominio.com" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Yeison | Software Developer</title>
-    <link rel="stylesheet" href="css/index.css" />
-    <!-- Font Awesome para iconos -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link
-      rel="icon"
-      href="./assets/images/favicon-32x32.png"
-      type="image/png"
-    />
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yeison Gil Alzate — Fullstack Developer especializado en Node.js, NestJS, Python, React y IA Aplicada. Medellín, Colombia." />
+  <meta property="og:title" content="Yeison Gil — Fullstack Developer" />
+  <meta property="og:description" content="Backend & APIs · IA Aplicada · Node.js · NestJS · Python · React" />
+  <meta property="og:url" content="https://yeisondev07.github.io/portfolio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Yeison Gil — Fullstack Developer</title>
 
-    <script type="text/javascript">
-      emailjs.init("uaU1acW9HUXAYnFAc");
-    </script>
-  </head>
-  <body>
-    <header class="header">
-      <nav class="nav container">
-        <div class="logo">
-          <img src="./assets/images/logo.png" alt="Logo Yeison" width="75" />
-        </div>
-        <button class="nav-toggle" aria-label="Abrir menú">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-links">
-          <li><a href="#about">Sobre mí</a></li>
-          <li><a href="#skills">Habilidades</a></li>
-          <li><a href="#projects">Proyectos</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
-        <button class="dark-mode-toggle" aria-label="Cambiar modo oscuro">
-          <i class="fas fa-moon"></i>
-        </button>
-      </nav>
-    </header>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="icon" href="./assets/images/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="css/index.css" />
 
-    <main>
-      <section class="hero">
-        <div id="particles-js"></div>
-        <div class="hero-content container">
-          <div class="hero-text">
-            <h1 class="hero-title">Hola, soy Yeison Gil</h1>
-            <p class="hero-subtitle">Full Stack Software Developer</p>
-            <p class="hero-description">
-              Tecnólogo en Análisis y Desarrollo de Software, con enfoque en
-              Node.js y React.js, y experiencia en el desarrollo de aplicaciones
-              web escalables.
-            </p>
-            <p class="hero-description">Ingeniero de Software en formación</p>
-            <div class="hero-buttons">
-              <a href="#projects" class="btn btn-primary">Ver proyectos</a>
-              <a href="#contact" class="btn btn-secondary">Contáctame</a>
-              <a
-                href="./assets/Yeison_Gil_CV.pdf"
-                download="Yeison_Gil_CV.pdf"
-                type="application/pdf"
-                class="btn btn-cv"
-              >
-                <i class="fas fa-download"></i> Descargar CV
-              </a>
-            </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("uaU1acW9HUXAYnFAc");</script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAV
+  ══════════════════════════════════════ -->
+  <nav class="nav" role="navigation" id="navbar">
+    <div class="nav-inner container">
+      <a href="#home" class="nav-logo">Yeison<span>.</span></a>
+
+      <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+        <li><a href="#education">Educación</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+
+      <a href="./assets/Yeison_Gil_CV.pdf" download class="nav-cta">
+        <i class="fas fa-download"></i> CV
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════
+         HERO
+    ══════════════════════════════════════ -->
+    <section class="hero" id="home">
+      <div class="hero-glow"></div>
+      <div class="hero-glow2"></div>
+
+      <div class="hero-inner container">
+        <div class="hero-text">
+          <div class="hero-tag">
+            <span class="dot"></span>
+            Disponible para nuevas oportunidades
           </div>
-          <div class="hero-image">
-            <div class="hero-image-placeholder">
-              <img src="./assets/images/foto-corp.png" alt="" />
-            </div>
+
+          <h1 class="hero-title">
+            Yeison Gil<br>
+            <span class="accent">Alzate</span>
+          </h1>
+
+          <p class="hero-role">Fullstack Developer · Backend &amp; APIs · IA Aplicada</p>
+
+          <p class="hero-desc">
+            Construyo servicios reales en producción — desde microservicios backend hasta plataformas de agentes conversacionales con IA.
+            Especializado en <strong>Node.js, NestJS y Python</strong>, con <strong>React</strong> en el frontend
+            y herramientas de IA como parte activa del flujo de trabajo.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#experience" class="btn-primary">Ver experiencia</a>
+            <a href="./assets/Yeison_Gil_CV.pdf" download class="btn-outline">
+              <i class="fas fa-download"></i> Descargar CV
+            </a>
+            <a href="#contact" class="btn-outline">Contacto</a>
           </div>
-        </div>
-      </section>
 
-      <section id="about" class="about">
-        <div class="container">
-          <h2 class="section-title">Sobre mí</h2>
-          <div class="about-content">
-            <div class="about-text">
-              <p>
-                <strong>Tecnólogo en Análisis y Desarrollo de Software</strong>
-                y estudiante de <strong>Ingeniería de Software</strong> en el
-                Politécnico Grancolombiano.
-              </p>
-
-              <p>
-                Desarrollador <strong>Full Stack</strong> con experiencia en
-                aplicaciones web utilizando
-                <strong>
-                  TypeScript, Node.js, NestJS/Express.js, Python, FastAPI, SQL,
-                  React.js y Angular </strong
-                >. Participé en el desarrollo de múltiples proyectos en
-                <strong>CapitalPocket Corp</strong>, incluyendo plataformas
-                transaccionales, sistemas de notificaciones y agentes
-                conversacionales con IA.
-              </p>
-
-              <p>
-                Utilizo <strong>Inteligencia Artificial</strong> como apoyo
-                estratégico para optimizar el desarrollo, mejorar la calidad del
-                código y entregar soluciones eficientes y bien documentadas.
-              </p>
-
-              <div class="about-stats">
-                <div class="stat-item">
-                  <i class="fas fa-briefcase"></i>
-                  <h3>1+</h3>
-                  <p>Años de experiencia</p>
-                </div>
-                <div class="stat-item">
-                  <i class="fas fa-project-diagram"></i>
-                  <h3>7+</h3>
-                  <p>Proyectos profesionales</p>
-                </div>
-                <div class="stat-item">
-                  <i class="fas fa-code-branch"></i>
-                  <h3>15+</h3>
-                  <p>Tecnologías utilizadas</p>
-                </div>
-              </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-num">1<span>+</span></div>
+              <div class="stat-label">Año en producción</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">5<span>k+</span></div>
+              <div class="stat-label">Usuarios gestionados</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">7<span>+</span></div>
+              <div class="stat-label">Servicios construidos</div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="skills" class="skills">
-        <div class="container">
-          <h2 class="section-title">Habilidades Técnicas</h2>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <i class="fas fa-server"></i>
-              <h3>Backend</h3>
-              <ul>
-                <li>Node.js</li>
-                <li>TypeScript</li>
-                <li>Python</li>
-                <li>NestJS</li>
-                <li>FastAPI</li>
-                <li>Express.js</li>
-                <li>REST APIs</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <i class="fas fa-database"></i>
-              <h3>Bases de Datos & ORM</h3>
-              <ul>
-                <li>PostgreSQL</li>
-                <li>MySQL</li>
-                <li>pgvector</li>
-                <li>Prisma</li>
-                <li>TypeORM</li>
-                <li>Sequelize</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <i class="fas fa-laptop-code"></i>
-              <h3>Frontend</h3>
-              <ul>
-                <li>React</li>
-                <li>Angular</li>
-                <li>JavaScript (ES6+)</li>
-                <li>HTML5 / CSS3</li>
-                <li>Responsive Design</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <i class="fas fa-tools"></i>
-              <h3>Herramientas & Tecnologías</h3>
-              <ul>
-                <li>Git & GitHub</li>
-                <li>VS Code</li>
-                <li>Postman</li>
-                <li>n8n (Automatización)</li>
-                <li>WhatsApp Business API</li>
-                <li>Metodologías ágiles (Scrum / Kanban)</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <i class="fas fa-brain"></i>
-              <h3>IA & Automatización</h3>
-              <ul>
-                <li>LangGraph / LangChain</li>
-                <li>RAG (Retrieval Augmented Generation)</li>
-                <li>Vector Search</li>
-                <li>Agentes Conversacionales</li>
-                <li>Desarrollo asistido por IA</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <i class="fas fa-lightbulb"></i>
-              <h3>Soft Skills</h3>
-              <ul>
-                <li>Trabajo en equipo</li>
-                <li>Resolución de problemas</li>
-                <li>Comunicación efectiva</li>
-                <li>Aprendizaje continuo</li>
-                <li>Pensamiento analítico</li>
-              </ul>
-            </div>
-          </div>
+        <div class="hero-photo">
+          <img src="./assets/images/foto-corp.png" alt="Yeison Gil Alzate" />
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="projects" class="projects">
-        <div class="container">
-          <h2 class="section-title">Experiencia & Proyectos</h2>
-          <div class="projects-grid">
-            <div class="project-card">
-              <div class="project-header">
-                <i class="fas fa-wallet"></i>
-              </div>
-              <h3>PockiPay - CapitalPocket Corp</h3>
-              <p>
-                Plataforma transaccional para gestionar y centralizar
-                operaciones financieras. Automatización de procesos financieros,
-                control de movimientos económicos y optimización de flujos de
-                pago internos.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">NestJS</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">n8n</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fas fa-briefcase"></i> May 2025 - Mar 2026</a
-                >
-              </div>
-              <span class="project-status status-completed">Completado</span>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <i class="fas fa-users-cog"></i>
-              </div>
-              <h3>PockiUsers - CapitalPocket Corp</h3>
-              <p>
-                Sistema de gestión de usuarios para todas las transacciones e
-                interacciones con el bot Pocki. Desarrollo individual de
-                arquitectura completa para administración centralizada de
-                usuarios.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">NestJS</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fas fa-briefcase"></i> May 2025 - Mar 2026</a
-                >
-              </div>
-              <span class="project-status status-completed">Completado</span>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <i class="fas fa-bell"></i>
-              </div>
-              <h3>PockiNotifier - CapitalPocket Corp</h3>
-              <p>
-                Sistema de notificaciones multicanal para envío de alertas por
-                WhatsApp y correo electrónico sobre estados de transacciones y
-                eventos del sistema.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">NestJS</span>
-                <span class="tech-tag">WhatsApp API</span>
-                <span class="tech-tag">Email</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fas fa-briefcase"></i> May 2025 - Mar 2026</a
-                >
-              </div>
-              <span class="project-status status-completed">Completado</span>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <i class="fas fa-robot"></i>
-              </div>
-              <h3>Pocki V3 - CapitalPocket Corp</h3>
-              <p>
-                Plataforma de agentes conversacionales con IA para automatizar
-                ventas, soporte y onboarding en WhatsApp, Webchat y Telegram.
-                Arquitectura multi-tenant con RAG y vector search.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">FastAPI</span>
-                <span class="tech-tag">LangGraph</span>
-                <span class="tech-tag">pgvector</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fas fa-briefcase"></i> May 2025 - Mar 2026</a
-                >
-              </div>
-              <span class="project-status status-completed">Completado</span>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <h3>PockiOperations - CapitalPocket Corp</h3>
-              <p>
-                Sistema operativo multi-tenant para gestión de transacciones y
-                operaciones de pago. Monitoreo en tiempo real de ventas, pedidos
-                y movimientos financieros con trazabilidad centralizada.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">NestJS</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">Real-time</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fas fa-briefcase"></i> May 2025 - Mar 2026</a
-                >
-              </div>
-              <span class="project-status status-completed">Completado</span>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <i class="fas fa-football-ball"></i>
-              </div>
-              <h3>LAR - Liga Antioqueña de Rugby</h3>
-              <p>
-                Desarrollo FrontEnd con React.js para la plataforma oficial de
-                la Liga Antioqueña de Rugby. Práctica profesional en Disruptive
-                Information Technologies.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">React.js</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">CSS</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fas fa-briefcase"></i> Feb 2024 - Jul 2024</a
-                >
-              </div>
-              <span class="project-status status-completed">Completado</span>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <i class="fas fa-robot"></i>
-              </div>
-              <h3>ChatBot Navi - Soporte Técnico</h3>
-              <p>
-                ChatBot desarrollado con Botpress para implementar soporte
-                técnico automatizado en la página oficial "Navi". Incluye
-                procesamiento de lenguaje natural y respuestas contextuales.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Botpress</span>
-                <span class="tech-tag">NLP</span>
-                <span class="tech-tag">JavaScript</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="project-link"
-                  ><i class="fas fa-briefcase"></i> 2024</a
-                >
-              </div>
-              <span class="project-status status-completed">Completado</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact">
-        <div class="container">
-          <h2 class="section-title">Contacto</h2>
-          <div class="contact-content">
-            <div class="contact-info">
-              <p class="contact-text">
-                ¿Tienes un proyecto en mente? ¡Hablemos!
-              </p>
-              <div class="contact-methods">
-                <div class="contact-item">
-                  <i class="fas fa-envelope"></i>
-                  <div>
-                    <h4>Email</h4>
-                    <a href="mailto:yeisongil.dev9701@gmail.com"
-                      >yeisongil.dev9701@gmail.com</a
-                    >
-                  </div>
-                </div>
-                <div class="contact-item">
-                  <i class="fab fa-github"></i>
-                  <div>
-                    <h4>GitHub</h4>
-                    <a
-                      href="https://github.com/YeisonDev07"
-                      target="_blank"
-                      rel="noopener"
-                      >github.com/YeisonDev07</a
-                    >
-                  </div>
-                </div>
-                <div class="contact-item">
-                  <i class="fab fa-linkedin"></i>
-                  <div>
-                    <h4>LinkedIn</h4>
-                    <a
-                      href="https://www.linkedin.com/in/yeisondev07"
-                      target="_blank"
-                      rel="noopener"
-                      >linkedin.com/in/yeisondev07</a
-                    >
-                  </div>
-                </div>
-                <div class="contact-item">
-                  <i class="fas fa-phone"></i>
-                  <div>
-                    <h4>Teléfono</h4>
-                    <a href="tel:+573114331999">+57 311 433 1999</a>
-                  </div>
-                </div>
-                <div class="contact-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <div>
-                    <h4>Ubicación</h4>
-                    <p>Itagüí, Antioquia, Colombia</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <form id="contact-form" class="contact-form">
-              <div class="form-group">
-                <label for="from_name">Nombre</label>
-                <input type="text" id="from_name" name="from_name" required />
-              </div>
-              <div class="form-group">
-                <label for="from_email">Email</label>
-                <input
-                  type="email"
-                  id="from_email"
-                  name="from_email"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="message">Mensaje</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">
-                Enviar mensaje
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
+    <!-- ══════════════════════════════════════
+         SOBRE MÍ
+    ══════════════════════════════════════ -->
+    <section id="about" class="section-about">
       <div class="container">
-        <div class="footer-content">
-          <p>© 2026 Yeison Gil Alzate. Software Developer</p>
-          <div class="social-links">
-            <a
-              href="https://github.com/YeisonDev07"
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              href="https://linkedin.com/in/yeisondev07"
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a
-              href="mailto:yeisongil.dev9701@gmail.com"
-              target="_blank"
-              rel="noopener"
-              aria-label="Email"
-            >
-              <i class="fas fa-envelope"></i>
-            </a>
+        <p class="section-tag">Sobre mí</p>
+        <h2 class="section-title">Criterio técnico,<br>no solo código.</h2>
+
+        <div class="about-grid">
+          <div class="about-body">
+            <p>Soy desarrollador Fullstack con más de un año de experiencia construyendo servicios reales en producción. Mi stack principal es <strong>Node.js, NestJS y Python</strong> en backend, con <strong>React</strong> en el frontend cuando el proyecto lo requiere.</p>
+            <p>He trabajado en entornos fintech construyendo desde cero microservicios de gestión de usuarios, plataformas financieras, sistemas de notificaciones multicanal y agentes conversacionales con IA. Entiendo lo que significa llevar algo a producción: schemas, lógica de negocio, integraciones, errores reales.</p>
+            <p>Uso herramientas de IA — <strong>Claude, ChatGPT, GitHub Copilot</strong> — como parte activa de mi flujo de trabajo. No solo para generar código, sino para revisar lógica, ajustar integraciones y tomar mejores decisiones técnicas más rápido.</p>
+            <p>Trabajo con autonomía, me gusta documentar y prefiero entender bien antes de ejecutar rápido.</p>
+          </div>
+
+          <div class="about-cards">
+            <div class="about-card">
+              <span class="about-card-label">Ubicación</span>
+              <span class="about-card-value">Medellín, Colombia</span>
+            </div>
+            <div class="about-card">
+              <span class="about-card-label">Modalidad</span>
+              <span class="about-card-value">Presencial · Híbrido · Remoto</span>
+            </div>
+            <div class="about-card">
+              <span class="about-card-label">Estado</span>
+              <span class="about-card-value green">Disponible ✓</span>
+            </div>
+            <div class="about-card">
+              <span class="about-card-label">Enfoque principal</span>
+              <span class="about-card-value">Backend · IA Aplicada</span>
+            </div>
+            <div class="about-card">
+              <span class="about-card-label">Inglés</span>
+              <span class="about-card-value">Técnico — lectura y comprensión</span>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <!-- Botón Volver Arriba -->
-    <button class="scroll-to-top" aria-label="Volver arriba">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- ══════════════════════════════════════
+         HABILIDADES
+    ══════════════════════════════════════ -->
+    <section id="skills" class="section-skills">
+      <div class="container">
+        <p class="section-tag">Stack</p>
+        <h2 class="section-title">Habilidades técnicas</h2>
+        <p class="section-sub">Tecnologías que he usado en entornos de producción real, no solo en tutoriales.</p>
 
-    <!-- EmailJS SDK -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    ></script>
-    <script src="js/main.js"></script>
-  </body>
+        <div class="skills-grid">
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
+            <h3>Backend</h3>
+            <div class="skill-tags">
+              <span>Node.js</span><span>NestJS</span><span>Express</span>
+              <span>Python</span><span>FastAPI</span><span>APIs REST</span>
+              <span>Webhooks</span><span>JWT</span>
+            </div>
+          </div>
+
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Frontend</h3>
+            <div class="skill-tags">
+              <span>React.js</span><span>TypeScript</span><span>JavaScript</span>
+              <span>HTML5</span><span>CSS3</span>
+            </div>
+          </div>
+
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon"><i class="fas fa-database"></i></div>
+            <h3>Bases de datos</h3>
+            <div class="skill-tags">
+              <span>PostgreSQL</span><span>MySQL</span><span>SQL</span>
+              <span>Diseño de schemas</span><span>Modelos de datos</span>
+            </div>
+          </div>
+
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon"><i class="fab fa-aws"></i></div>
+            <h3>Cloud</h3>
+            <div class="skill-tags">
+              <span>AWS S3</span><span>AWS Lambda</span>
+              <span>Serverless</span><span>Almacenamiento RAG</span>
+            </div>
+          </div>
+
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon"><i class="fas fa-brain"></i></div>
+            <h3>IA &amp; Automatización</h3>
+            <div class="skill-tags">
+              <span>Claude</span><span>Claude Code</span><span>ChatGPT</span>
+              <span>GitHub Copilot</span><span>n8n</span>
+              <span>Agentes conversacionales</span>
+              <span>Meta API (WhatsApp)</span>
+            </div>
+          </div>
+
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon"><i class="fas fa-tools"></i></div>
+            <h3>Herramientas</h3>
+            <div class="skill-tags">
+              <span>Git</span><span>GitHub</span><span>Botpress</span>
+              <span>Postman</span><span>VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         EXPERIENCIA
+    ══════════════════════════════════════ -->
+    <section id="experience" class="section-experience">
+      <div class="container">
+        <p class="section-tag">Experiencia</p>
+        <h2 class="section-title">Lo que he construido</h2>
+        <p class="section-sub">Servicios llevados a producción en entornos reales, no proyectos de práctica.</p>
+
+        <div class="exp-list">
+
+          <!-- Pocki -->
+          <div class="exp-item animate-on-scroll">
+            <div class="exp-meta">
+              <div class="exp-period">May 2025 – Mar 2026</div>
+              <div class="exp-company">CapitalPocket Corp SAS</div>
+              <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Medellín, Colombia</div>
+            </div>
+            <div class="exp-body">
+              <h3 class="exp-role">Desarrollador Backend / Fullstack</h3>
+              <p class="exp-context">Construcción de microservicios backend para una plataforma fintech con más de 5.000 usuarios activos, integraciones a servicios externos y participación en sistemas de agentes conversacionales con IA.</p>
+              <ul class="exp-bullets">
+                <li>Diseñé e implementé desde cero el servicio centralizado de gestión de usuarios — eliminando la duplicidad de dos bases de datos desincronizadas, <strong>centralizando más de 5.000 registros</strong> en un único microservicio llevado a producción.</li>
+                <li>Construí el servicio de notificaciones multicanal (WhatsApp y correo) cubriendo todos los estados del ciclo de facturación — <strong>reduciendo a cero la intervención manual</strong> para comunicar el estado de cada operación.</li>
+                <li>Integré la API de WhatsApp Business Platform de Meta con manejo de webhooks y flujos de respuesta automática, habilitando comunicación en tiempo real con los usuarios finales.</li>
+                <li>Contribuí a consolidar dos versiones independientes de la plataforma de agentes conversacionales con IA en un único sistema multi-agente, <strong>eliminando errores en cascada</strong> entre versiones.</li>
+                <li>Automaticé procesos internos del equipo con n8n, <strong>reduciendo ~30%</strong> el tiempo dedicado a tareas operativas repetitivas.</li>
+                <li>Implementé almacenamiento de documentos, imágenes y recursos RAG en AWS S3, y funciones serverless con AWS Lambda para servicios de facturación bajo demanda.</li>
+              </ul>
+              <div class="exp-techs">
+                <span>TypeScript</span><span>Node.js</span><span>NestJS</span>
+                <span>Python</span><span>FastAPI</span><span>PostgreSQL</span>
+                <span>MySQL</span><span>AWS S3</span><span>AWS Lambda</span>
+                <span>n8n</span><span>Meta API</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Disruptive -->
+          <div class="exp-item animate-on-scroll">
+            <div class="exp-meta">
+              <div class="exp-period">Feb 2024 – Jul 2024</div>
+              <div class="exp-company">Disruptive Information Technologies</div>
+              <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Medellín, Colombia</div>
+            </div>
+            <div class="exp-body">
+              <h3 class="exp-role">Practicante de Desarrollo de Software</h3>
+              <p class="exp-context">Desarrollo frontend y chatbot de soporte para dos productos distintos.</p>
+              <ul class="exp-bullets">
+                <li>Desarrollé vistas con React.js para el proyecto LAR (Liga Antioqueña de Rugby), consumiendo APIs REST e integrándome al equipo de backend.</li>
+                <li>Construí un chatbot de soporte técnico en Botpress para la plataforma Navi, con flujos de conversación automatizados que redujeron la carga de consultas manuales al equipo.</li>
+              </ul>
+              <div class="exp-techs">
+                <span>React.js</span><span>JavaScript</span>
+                <span>Botpress</span><span>APIs REST</span><span>Git</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         EDUCACIÓN
+    ══════════════════════════════════════ -->
+    <section id="education" class="section-education">
+      <div class="container">
+        <p class="section-tag">Formación</p>
+        <h2 class="section-title">Educación</h2>
+
+        <div class="edu-grid">
+          <div class="edu-card animate-on-scroll">
+            <span class="edu-badge active">En curso</span>
+            <h3 class="edu-title">Ingeniería de Software</h3>
+            <p class="edu-school">Politécnico Grancolombiano</p>
+            <p class="edu-detail">Febrero 2025 – Diciembre 2026 · Medellín, Colombia</p>
+          </div>
+          <div class="edu-card animate-on-scroll">
+            <span class="edu-badge done">Completado</span>
+            <h3 class="edu-title">Tecnólogo en Análisis y Desarrollo de Software</h3>
+            <p class="edu-school">SENA</p>
+            <p class="edu-detail">Abril 2021 – Agosto 2024 · Itagüí, Colombia · Nota: &gt;4.5/5.0</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         CONTACTO
+    ══════════════════════════════════════ -->
+    <section id="contact" class="section-contact">
+      <div class="container">
+        <p class="section-tag">Contacto</p>
+        <h2 class="section-title">Hablemos</h2>
+        <p class="section-sub">¿Tienes un proyecto o una oportunidad? Escríbeme directamente o usa el formulario.</p>
+
+        <div class="contact-grid">
+          <div class="contact-links">
+            <a href="mailto:yeisongil.dev9701@gmail.com" class="contact-link">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <span class="cl-label">Email</span>
+                <span class="cl-val">yeisongil.dev9701@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+573114331999" class="contact-link">
+              <i class="fas fa-phone"></i>
+              <div>
+                <span class="cl-label">Teléfono</span>
+                <span class="cl-val">+57 311 433 1999</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/yeisondev07/" target="_blank" rel="noopener" class="contact-link">
+              <i class="fab fa-linkedin"></i>
+              <div>
+                <span class="cl-label">LinkedIn</span>
+                <span class="cl-val">linkedin.com/in/yeisondev07</span>
+              </div>
+            </a>
+            <a href="https://github.com/YeisonDev07" target="_blank" rel="noopener" class="contact-link">
+              <i class="fab fa-github"></i>
+              <div>
+                <span class="cl-label">GitHub</span>
+                <span class="cl-val">github.com/YeisonDev07</span>
+              </div>
+            </a>
+            <a href="https://yeisondev07.github.io/portfolio/" target="_blank" rel="noopener" class="contact-link">
+              <i class="fas fa-globe"></i>
+              <div>
+                <span class="cl-label">Portafolio</span>
+                <span class="cl-val">yeisondev07.github.io/portfolio</span>
+              </div>
+            </a>
+          </div>
+
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="from_name">Nombre</label>
+              <input type="text" id="from_name" name="from_name" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="from_email">Email</label>
+              <input type="email" id="from_email" name="from_email" placeholder="tu@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre el proyecto u oportunidad..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full" id="submitBtn">
+              Enviar mensaje
+            </button>
+            <p id="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 Yeison Gil Alzate · Fullstack Developer</span>
+      <div class="footer-socials">
+        <a href="https://github.com/YeisonDev07" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/yeisondev07/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:yeisongil.dev9701@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
 </html>

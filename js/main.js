@@ -99,8 +99,8 @@ if (contactForm) {
 
     try {
       await emailjs.sendForm(
-        'default_service',     // ⚠️ Reemplaza con tu Service ID
-        'template_yq7elmz',    // ⚠️ Reemplaza con tu Template ID
+        'service_e8wj29g',
+        'template_yq7elmz',
         contactForm
       );
       setStatus('✓ Mensaje enviado. ¡Te contactaré pronto!', 'ok');
